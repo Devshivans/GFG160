@@ -1,0 +1,25 @@
+Link:-https://www.geeksforgeeks.org/batch/gfg-160-problems/track/arrays-gfg-160/problem/second-largest3735
+
+//IN Given an array of positive integers arr[], return the second largest element from the array. 
+//If the second largest element doesn't exist then return -1.
+//Note: The second largest element should not be equal to the largest element.
+
+CODE:
+
+class Solution {
+  public:
+    // Function returns the second-largest element
+  int secondlargest(vector<int> &arr){
+   if(arr.size() < 2) return -1;
+
+   sort(arr.begin(),arr.end());
+
+   for(int i=arr.size()-2;i>=0;i--){
+    if(arr[i]<arr[arr.size()-1]){
+      return arr[i];
+    }
+    }
+   
+   return -1;
+   }
+};
