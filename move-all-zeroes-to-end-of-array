@@ -1,0 +1,41 @@
+LINK:-https://www.geeksforgeeks.org/batch/gfg-160-problems/track/arrays-gfg-160/problem/move-all-zeroes-to-end-of-array0751
+
+
+//Given an array arr[]. Push all the zeros of the given array to the right end of the array while maintaining the order of
+// non-zero elements. 
+//Do the mentioned change in the array in place.
+
+
+CODE:
+
+class Solution {
+  public:
+    void pushZerosToEnd(vector<int>& arr) {
+        // code here
+        int nonzeroindex=0;
+        for(int i=0;i<arr.size();i++){
+            if(arr[i]!=0){
+                arr[nonzeroindex]=arr[i];
+                nonzeroindex++;
+            }
+
+        }
+        for(int i=nonzeroindex;i<arr.size();i++){
+            arr[i]=0;
+        }
+    
+    }
+};
+    int main(){
+     vector<int> arr={0,1,0,3,15};
+     Solution obj;
+    obj.pushZerosToEnd(arr);
+
+     for(int x: arr){
+        cout<<x<<" ";
+     }
+    
+     return 0;
+
+    
+};
