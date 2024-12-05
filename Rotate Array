@@ -1,0 +1,38 @@
+//Given an unsorted array arr[]. Rotate the array to the left (counter-clockwise direction) by d steps, where d is a positive integer. Do the mentioned change in the array in place.
+
+//Note: Consider the array as circular.
+
+Link:-https://www.geeksforgeeks.org/batch/gfg-160-problems/track/arrays-gfg-160/problem/rotate-array-by-n-elements-1587115621
+
+
+
+class Solution {
+public:
+    // Helper function to reverse elements in the array between indices 'start' and 'end'
+    void reverseArray(vector<int>& arr, int start, int end) {
+        while (start < end) {
+            swap(arr[start], arr[end]);
+            start++;
+            end--;
+        }
+    }
+
+    // Function to rotate an array by d elements in a counter-clockwise direction
+    void rotateArr(vector<int>& arr, int d) {
+        int n = arr.size();
+
+        // Handle edge cases where no rotation is needed
+        if (d == 0 || d % n == 0) return;
+
+        d = d % n; // Ensure d is within bounds
+
+        // Step 1: Reverse the first d elements
+        reverseArray(arr, 0, d - 1);
+
+        // Step 2: Reverse the remaining elements
+        reverseArray(arr, d, n - 1);
+
+        // Step 3: Reverse the entire array
+        reverseArray(arr, 0, n - 1);
+    }
+};
